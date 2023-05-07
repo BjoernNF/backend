@@ -23,7 +23,7 @@ public class BackendService {
         }
 
         public void postTodo(TodoModel todo) {
-            repository.postTodo(todo);
+            repository.postTodoUUID(todo);
         }
 
         public void putTodo(String id, TodoModel todo) {

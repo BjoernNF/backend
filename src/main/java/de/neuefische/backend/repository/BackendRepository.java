@@ -27,10 +27,11 @@ public class BackendRepository {
         return todoModel.get(id);
     }
 
-    public void postTodo(TodoModel model) {
+    public UUID postTodoUUID(TodoModel model) {
         UUID uuid = UUID.randomUUID();
         model.setId(uuid.toString());
         todoModel.put(uuid.toString(), model);
+        return uuid;
     }
 
     public void putTodo(String id, TodoModel model) {
