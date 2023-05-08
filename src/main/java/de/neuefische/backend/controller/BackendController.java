@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import de.neuefische.backend.service.BackendService;
 
 import java.util.List;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -40,8 +41,8 @@ public class BackendController {
     }
 
     @PostMapping("/todo")
-    public void postTodo(@RequestBody TodoModel model) {
-        service.postTodo(model);
+    public UUID postTodo(@RequestBody TodoModel model) {
+        return service.postTodo(model);
     }
 
     @PutMapping("/todo/{id}")

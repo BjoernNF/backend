@@ -1,10 +1,12 @@
 package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.TodoModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import de.neuefische.backend.repository.BackendRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class BackendService {
@@ -22,8 +24,8 @@ public class BackendService {
             return repository.getTodoById(id);
         }
 
-        public void postTodo(TodoModel todo) {
-            repository.postTodoUUID(todo);
+        public UUID postTodo(TodoModel todo) {
+            return repository.postTodoUUID(todo);
         }
 
         public void putTodo(String id, TodoModel todo) {

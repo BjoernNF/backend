@@ -2,7 +2,9 @@ package de.neuefische.backend.repository;
 
 import lombok.Data;
 import de.neuefische.backend.model.TodoModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -24,7 +26,13 @@ public class BackendRepository {
     }
 
     public TodoModel getTodoById(String id) {
-        return todoModel.get(id);
+        if (todoModel.containsKey(id)) {
+            return todoModel.get(id);
+        }
+        else
+        {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No user found with ID: " + id);
+        }
     }
 
     public UUID postTodoUUID(TodoModel model) {
