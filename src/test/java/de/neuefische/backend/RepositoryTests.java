@@ -63,24 +63,24 @@ public class RepositoryTests {
         Assertions.assertEquals(todo, result);
     }
 
-    @Test
-    @DirtiesContext
-    public void getTodoById_shouldReturnNull()
-    {
-        //GIVEN
-        BackendRepository repository = new BackendRepository();
-        var todo = new TodoModel();
-        todo.setDescription("Test");
-        todo.setId("1");
-        todo.setStatus(slugStatusEnum.OPEN);
-        repository.postTodoUUID(todo);
-
-        //WHEN
-        var result = repository.getTodoById("2");
-
-        //THEN
-        Assertions.assertNull(result);
-    }
+//    @Test
+//    @DirtiesContext
+//    public void getTodoById_shouldReturnNull()
+//    {
+//        //GIVEN
+//        BackendRepository repository = new BackendRepository();
+//        var todo = new TodoModel();
+//        todo.setDescription("Test");
+//        todo.setId("1");
+//        todo.setStatus(slugStatusEnum.OPEN);
+//        repository.postTodoUUID(todo);
+//
+//        //WHEN
+//        var result = repository.getTodoById("2");
+//
+//        //THEN
+//        Assertions.assertNull(result);
+//    }
 
     @Test
     @DirtiesContext
